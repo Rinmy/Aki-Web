@@ -15,9 +15,11 @@ jobs:
 
       - name: Node.js セットアップ
         uses: actions/setup-node@v3
-        run: npm install -g npm@9.1.1
         with:
           node-version: 19.0.1
+
+      - name: npm セットアップ
+        run: npm install -g npm@9.1.1
 
       - name: パッケージインストール
         run: npm install
