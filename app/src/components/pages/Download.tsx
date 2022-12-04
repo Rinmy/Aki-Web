@@ -121,7 +121,11 @@ export const Download: React.FC = () => {
 											{file.mcVersion}
 										</TableCell>
 										<TableCell>
-											<IconButton color="primary" component="a" href={`/download/${file.link}`}>
+											<IconButton
+												color="primary"
+												component="a"
+												href={`/assets/downloads/${file.link}`}
+											>
 												<DownloadRoundedIcon />
 											</IconButton>
 										</TableCell>
