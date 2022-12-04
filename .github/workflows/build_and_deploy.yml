@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "${{ secrets.PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          ssh -oStrictHostKeyChecking=no -i private_key ${{ secrets.HOST }} -l ${{ secrets.USER }} -p ${{ secrets.PORT }} "cd ${{ secrets.DOCUMENT_ROOT }} && rm -rf *"
+          ssh -oStrictHostKeyChecking=no -i private_key ${{ secrets.HOST }} -l ${{ secrets.USER }} -p ${{ secrets.PORT }} "mkdir -p ${{ secrets.DOCUMENT_ROOT }} && cd ${{ secrets.DOCUMENT_ROOT }} && rm -rf *"
           scp -oStrictHostKeyChecking=no -i private_key -P ${{ secrets.PORT }} ./build.tar.gz ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.DOCUMENT_ROOT }}
           ssh -oStrictHostKeyChecking=no -i private_key ${{ secrets.HOST }} -l ${{ secrets.USER }} -p ${{ secrets.PORT }} "cd ${{ secrets.DOCUMENT_ROOT }} && tar xvzf ./build.tar.gz -C ./ --strip-components 2 && rm ./build.tar.gz"
         working-directory: ./app/
