@@ -1,0 +1,21 @@
+root = true
+
+[*.json]
+indent_style = tab
+
+[*.ts]
+indent_style = tab
+
+
+[*.tsx]
+indent_style = tab
+
+[*.css]
+indent_style = space
+indent_size = 2
+
+[*.html]
+indent_style = tab
+
+[*.yml]
+indent_size = 2

@@ -1,0 +1,40 @@
+name: ビルド & デプロイ
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v3
+
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v3
+        run: npm install -g npm@9.1.1
+        with:
+          node-version: 19.0.1
+
+      - name: パッケージインストール
+        run: npm install
+        working-directory: ./app/
+
+      - name: ビルド
+        run: npm run build
+        working-directory: ./app/
+
+      - name: ビルド結果を圧縮
+        run: tar -zcvf ./build.tar.gz ./dist/
+        working-directory: ./app/
+
+      - name: デプロイ
+        run: |
+          echo "${{ secrets.PRIVATE_KEY }}" > private_key
+          chmod 600 private_key
+          scp -oStrictHostKeyChecking=no ./build.tar.gz ${{ secrets.USER }}@${{ secrets.HOST }}:/server/www/ -i private_key -P ${{ secrets.PORT }}
+          ssh -oStrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} -i private_key -P ${{ secrets.PORT }} "cd /server/www/ && tar -zxvf ./build.tar.gz"
+        working-directory: ./app/

@@ -1,0 +1,30 @@
+/*
+* 初期設定
+*/
+
+* {
+  /* インターフェース */
+  box-sizing: border-box;
+
+  /* フォント */
+  font-family:
+    '游ゴシック体',
+    YuGothic,
+    '游ゴシック',
+    'メイリオ',
+    Meiryo,
+    'Hiragino Kaku Gothic Pro',
+    'ヒラギノ角ゴ Pro W3',
+    'ＭＳ Ｐゴシック',
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
