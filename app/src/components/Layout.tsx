@@ -87,7 +87,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 						to="/"
 						sx={{ color: "white", textDecoration: "none" }}
 					>
-						Live EYE
+						Aki Web
 					</Typography>
 				</Toolbar>
 			</AppBar>

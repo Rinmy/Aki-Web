@@ -6,6 +6,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 interface sidebarItemType {
 	id: string;
@@ -21,6 +22,12 @@ const sidebarList: sidebarItemType[][] = [
 			name: "ホーム",
 			icon: <HomeRoundedIcon />,
 			path: "/"
+		},
+		{
+			id: "download",
+			name: "ダウンロード",
+			icon: <DownloadRoundedIcon />,
+			path: "/download"
 		}
 	]
 ];
