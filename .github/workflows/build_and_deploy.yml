@@ -37,4 +37,5 @@ jobs:
         run: |
           echo "${{ secrets.PRIVATE_KEY }}" > private_key
           chmod 600 private_key
+          ssh -oStrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} -i private_key -P ${{ secrets.PORT }} "ls"
         working-directory: ./app/
