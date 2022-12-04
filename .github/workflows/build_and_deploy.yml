@@ -37,5 +37,4 @@ jobs:
         run: |
           echo "${{ secrets.PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          scp -oStrictHostKeyChecking=no ./build.tar.gz ${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.DOCUMENT_ROOT }} -i private_key -P ${{ secrets.PORT }}
         working-directory: ./app/
