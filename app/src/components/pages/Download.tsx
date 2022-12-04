@@ -124,7 +124,7 @@ export const Download: React.FC = () => {
 											<IconButton
 												color="primary"
 												component="a"
-												href={`/assets/downloads/${file.link}`}
+												href={`/resources/downloads/${file.link}`}
 											>
 												<DownloadRoundedIcon />
 											</IconButton>
